@@ -1,0 +1,296 @@
+#root {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+html body{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(150, 150, 150);
+}
+
+/*EJERCICIO 1 - COLOR FONDO*/
+.colorFondo h1{
+  text-align: center;
+  font-weight: 900;
+}
+.colorFondo {
+  display: flex;
+  flex-direction: column;
+}
+.colorBotones{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.colorBotones button{
+  background-color: rgb(53, 53, 53);
+  border: 0;
+  color: white;
+  font-weight: 900;
+  padding: 10px;
+  border-radius: 5px;
+}
+.colorBotones button:hover{
+  background-color: rgb(185, 185, 185);
+  border: 0;
+  color: rgb(32, 32, 32);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/*EJERCICIO 2 - CONTADOR CLICS*/
+.contador h1{
+  text-align: center;
+  font-weight: 900;
+}
+.contador p{
+  text-align: center;
+  font-weight: 900;
+}
+.contador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.contadorBotones {
+  display: flex;
+  gap: 5px;
+}
+.contador button{
+  background-color: rgb(53, 53, 53);
+  border: 0;
+  color: white;
+  font-weight: 900;
+  padding: 10px;
+  border-radius: 5px;
+}
+.contador button:hover{
+  background-color: rgb(185, 185, 185);
+  border: 0;
+  color: rgb(32, 32, 32);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/*EJERCICIO 3 - LISTA DINAMICA*/
+.listaDinamica {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.listaDinamica h1{
+  text-align: center;
+  font-weight: 900;
+}
+.listaDinamica button{
+  background-color: rgb(53, 53, 53);
+  border: 0;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+.lista button{
+  background-color: rgb(180, 180, 180);
+  border: 0;
+  padding: 1px;
+  border-radius: 5px;
+}
+.listaDinamica button:hover{
+  background-color: rgb(185, 185, 185);
+  border: 0;
+  color: rgb(32, 32, 32);
+  padding: 10px;
+  border-radius: 5px;
+}
+.lista button:hover{
+  background-color: rgb(248, 184, 184);
+  border: 0;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+/*EJERCICIO 4 - FILTRO BUSQUEDA*/
+.filtroBusqueda{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.filtroBusqueda h1{
+  text-align: center;
+  font-weight: 900;
+}
+.filtroBusqueda h4{
+  text-align: center;
+  font-weight: 900;
+}
+
+/*EJERCICIO 5 - CALCULADORA*/
+.calculadora h1{
+  text-align: center;
+  font-weight: 900;
+}
+.calculadora {
+  background-color: rgb(185, 185, 185);
+  padding: 15px;
+}
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+.operadores {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  padding-top: 10px;
+  gap: 5px;
+}
+.operadores button{
+  background-color: bisque;
+}
+.resultado {
+  background-color: beige;
+  margin-top: 10px;
+  padding: 5px;
+}
+.operacion {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  gap: 15px;
+}
+.operacion button{
+  background-color: beige;
+}
+
+/*EJERCICIO 6 - TEMPORIZADOR*/
+.temporizador{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container1 p{
+  font-size: 50px;
+  font-weight: bold;
+}
+.container2 {
+  display: flex;
+  gap: 15px;
+}
+.container2 button {
+  background-color: rgb(53, 53, 53);
+  border: 0;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+.container2 button:hover {
+  background-color: rgb(185, 185, 185);
+  border: 0;
+  color: rgb(32, 32, 32);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/*EJERCICIO 7 - GENERADOR CONTRASEÑA*/
+.contra h1{
+  text-align: center;
+  font-weight: 900;
+}
+.contra{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.error{
+  color: red;
+  font-weight: 500;
+  text-align: center;
+  font-size: 25px;
+}
+.contrasena {
+  color: blueviolet;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+}
+.contra button {
+  background-color: rgb(53, 53, 53);
+  border: 0;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+.contra button:hover {
+  background-color: rgb(185, 185, 185);
+  border: 0;
+  color: rgb(32, 32, 32);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/*EJERCICIO 8 - CONTADOR PALABRAS Y CARACTERES*/
+
+.contadorPalabrasCaracteres{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contadorPalabrasCaracteres h1{
+  text-align: center;
+  font-weight: 900;
+}
+.contadorPalabrasCaracteres textarea{
+  width: 300px;
+  height: 150px;
+}
+.contadorPalabrasCaracteres button{
+  background-color: rgb(53, 53, 53);
+  border: 0;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+.contadorPalabrasCaracteres button:hover {
+  background-color: rgb(185, 185, 185);
+  border: 0;
+  color: rgb(32, 32, 32);
+  padding: 10px;
+  border-radius: 5px;
+}
+.contadorPalabrasCaracteres p{
+  text-align: center;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+/*EJERCICIO 9 - LISTA DE TAREAS*/
+.listaTareasLocal {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.listaTareasLocal h1{
+  text-align: center;
+  font-weight: 900;
+}
+.listaTareasLocal p{
+  font-size: 19px;
+  font-weight: 900;
+}
+.listaTareasLocal button{
+  background-color: rgb(53, 53, 53);
+  border: 0;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+.listaTareasLocal button:hover {
+  background-color: rgb(185, 185, 185);
+  border: 0;
+  color: rgb(32, 32, 32);
+  padding: 10px;
+  border-radius: 5px;
+}

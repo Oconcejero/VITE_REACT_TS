@@ -14,8 +14,6 @@ const Ejercicio7 = () => {
     if (longitud >= 4) {
       const caracteres =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}";
-      const carAleatorio =
-        caracteres[Math.floor(Math.random() * caracteres.length)];
 
       for (let i = 0; i < longitud; i++) {
         nuevaContra +=

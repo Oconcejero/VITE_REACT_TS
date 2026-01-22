@@ -17,6 +17,7 @@ html body{
 .colorFondo {
   display: flex;
   flex-direction: column;
+  height: 400px;
 }
 .colorBotones{
   display: flex;
@@ -53,6 +54,8 @@ html body{
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  justify-content: center;
+  height: 400px;
 }
 .contadorBotones {
   display: flex;
@@ -80,6 +83,8 @@ html body{
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  justify-content: center;
+  height: 400px;
 }
 .listaDinamica h1{
   text-align: center;
@@ -117,6 +122,8 @@ html body{
   display: flex;
   flex-direction: column;
   gap: 15px;
+  justify-content: center;
+  height: 400px;
 }
 .filtroBusqueda h1{
   text-align: center;
@@ -135,6 +142,8 @@ html body{
 .calculadora {
   background-color: rgb(185, 185, 185);
   padding: 15px;
+  justify-content: center;
+  height: 400px;
 }
 .numeros {
   display: grid;
@@ -170,6 +179,8 @@ html body{
   display:flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 400px;
 }
 .container1 p{
   font-size: 50px;
@@ -203,6 +214,8 @@ html body{
   display: flex;
   flex-direction: column;
   gap: 10px;
+  justify-content: center;
+  height: 400px;
 }
 .error{
   color: red;
@@ -237,6 +250,8 @@ html body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 400px;
 }
 .contadorPalabrasCaracteres h1{
   text-align: center;
@@ -271,6 +286,8 @@ html body{
   display: flex;
   flex-direction: column;
   gap: 15px;
+  justify-content: center;
+  height: 400px;
 }
 .listaTareasLocal h1{
   text-align: center;

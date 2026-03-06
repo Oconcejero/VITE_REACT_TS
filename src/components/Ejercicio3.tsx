@@ -23,18 +23,19 @@ const Ejercicio3 = () => {
 
       <input
         type="text"
+        placeholder="Escribe algo aquí..."
         value={valor}
         onChange={(e) => setValor(e.target.value)}
       />
 
       <div className="container1">
-        <button onClick={() => agregarEntrada()}>Agregar</button>
+        <button className="btn-agregar" onClick={() => agregarEntrada()}>Agregar</button>
       </div>
-      <div className="lista">
+      <div className="lista-container">
         {lista.map((item, i) => (
-          <li key={i}>
+          <li key={i} className="lista-item">
             {item}
-            <button onClick={() => eliminarItem(item)}>❌</button>
+            <button className="btn-delete" onClick={() => eliminarItem(item)}>❌</button>
           </li>
         ))}
       </div>

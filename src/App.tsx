@@ -43,17 +43,38 @@ function App() {
     setEjercicio(elemento);
   };
 
-  return (
-    <Card>
-      <CardBody
-        tittle="Ejercicios REACT"
-        text="Listado de ejercicios en REACT"
-      />
-      <List data={list} onSelect={handleSelect} />
-      <>
-        <Componente />
-      </>
-    </Card>
+return (
+    <div className="dashboard-container">
+      {/* BARRA LATERAL */}
+      <nav className="sidebar">
+        <div className="sidebar-header">
+          <h1>REACT<span>LABS</span></h1>
+        </div>
+        
+        <ul className="exercise-list">
+          {list.map((item) => (
+            <li
+              key={item}
+              className={`exercise-item ${ejercicio === item ? 'active' : ''}`}
+              onClick={() => setEjercicio(item)}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* ÁREA CENTRAL */}
+      <main className="main-content">
+        <div className="exercise-canvas">
+          <header style={{ marginBottom: '40px', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '2rem', color: '#fff' }}>{ejercicio}</h2>
+            <div style={{ height: '4px', width: '40px', background: '#ffcc00', margin: '10px auto' }}></div>
+          </header>
+          <Componente />
+        </div>
+      </main>
+    </div>
   );
 }
 

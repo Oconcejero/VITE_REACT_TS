@@ -21,9 +21,9 @@ const Ejercicio2 = () => {
       <p>Llevas {contador} clics</p>
 
       <div className="contadorBotones">
-        <button onClick={() => sumarClics()}>Sumar Click</button>
-        <button onClick={() => restarClics()}>Restar Click</button>
-        <button onClick={() => contadorNuevo()}>Contador a 0</button>
+        <button className="btn-primary-lab" onClick={() => sumarClics()}>Sumar Click</button>
+        <button className="btn-secondary-lab" onClick={() => restarClics()}>Restar Click</button>
+        <button className="btn-outline-lab" onClick={() => contadorNuevo()}>Contador a 0</button>
       </div>
     </div>
   );

@@ -14,17 +14,27 @@ const Ejercicio8 = () => {
 
   return (
     <div className="contadorPalabrasCaracteres">
-      <h1>Contador palabras y caracteres</h1>
+      <header style={{textAlign: 'center', marginBottom: '10px'}}>
+        <h1>Word Counter</h1>
+        <p style={{color: '#666', fontSize: '0.85rem'}}>Análisis de texto en tiempo real</p>
+      </header>
       <div>
         <textarea
+          placeholder="Empieza a escribir o pega tu texto aquí..."
           value={parrafo}
           onChange={(e) => setParrafo(e.target.value)}
         />
-        <p>Caracteres: {caracteres.length}</p>
-        <p>Palabras: {palabras.length}</p>
+        <div className="stats-container">
+          <div className="stat-pill">
+            <p>Caracteres: {caracteres.length}</p>
+          </div>
+          <div className="stat-pill">
+            Palabras: <span>{palabras.length}</span>
+          </div>
+        </div>
       </div>
       <div>
-        <button onClick={() => limpiar()}>Limpiar</button>
+        <button className="btn-limpiar-lab" onClick={() => limpiar()}>Limpiar</button>
       </div>
     </div>
   );

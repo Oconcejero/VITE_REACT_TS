@@ -29,15 +29,19 @@ const Ejercicio7 = () => {
 
   return (
     <div className="contra">
-      <h1>Generar contraseña</h1>
-      <input
-        value={contador}
-        type="number"
-        onChange={(e) => setContador(e.target.value)}
-      />
+      <header style={{textAlign: 'center'}}>
+        <h1>Password Gen</h1>
+        <p style={{color: '#666', fontSize: '0.8rem'}}>Define la longitud y genera</p>
+      </header>
+      <div className="input-group-lab">
+        <input
+          value={contador}
+          type="number"
+          onChange={(e) => setContador(e.target.value)}
+        />
 
-      <button onClick={() => generar()}>Generar</button>
-
+        <button className="btn-generar" onClick={() => generar()}>Generar</button>
+      </div>
       <div className="cuadroContra">
         <p className="error">{error}</p>
         <p className="contrasena">{resultado}</p>

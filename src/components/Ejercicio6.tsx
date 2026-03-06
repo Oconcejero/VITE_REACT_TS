@@ -51,14 +51,14 @@ const Ejercicio6 = () => {
       <div className="temporizador">
         <h1>Temporizador</h1>
 
-        <div className="container1">
+        <div className="display-tiempo">
           <p>{tiempo}</p>
         </div>
 
-        <div className="container2">
-          <button onClick={() => iniciar()}>Start</button>
-          <button onClick={() => parar()}>Stop</button>
-          <button onClick={() => reiniciar()}>Reset</button>
+        <div className="controles">
+          <button className="btn-start" onClick={() => iniciar()}>Start</button>
+          <button className="btn-stop" onClick={() => parar()}>Stop</button>
+          <button className="btn-reset-lab" onClick={() => reiniciar()}>Reset</button>
         </div>
       </div>
     </>

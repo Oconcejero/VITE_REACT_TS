@@ -1,313 +1,1010 @@
-#root {
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-}
-html body{
-  display: flex;
-  justify-content: center;
-  background-color: rgb(150, 150, 150);
+:root {
+  --bg-dark: #050505;
+  --panel-dark: #111111;
+  --accent-yellow: #ffcc00;
+  --text-white: #ffffff;
+  --text-grey: #666666;
+  --border: #222222;
 }
 
-/*EJERCICIO 1 - COLOR FONDO*/
-.colorFondo h1{
-  text-align: center;
-  font-weight: 900;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
 }
+
+body,
+html,
+#root {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  overflow: hidden;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 100vh;
+}
+
+/* BARRA LATERAL */
+.sidebar {
+  background-color: var(--panel-dark);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+}
+
+.sidebar-header {
+  padding: 0 30px;
+  margin-bottom: 50px;
+}
+
+.sidebar-header h1 {
+  font-weight: 900;
+  font-size: 1.2rem;
+  letter-spacing: -0.5px;
+  color: var(--text-white);
+}
+
+.sidebar-header span {
+  color: var(--accent-yellow);
+}
+
+/* Lista de navegación */
+.exercise-list {
+  list-style: none;
+  flex-grow: 1;
+}
+
+.exercise-item {
+  padding: 14px 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-grey);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.exercise-item:hover {
+  color: var(--text-white);
+  background-color: #1a1a1a;
+}
+
+.exercise-item.active {
+  color: var(--accent-yellow);
+  background-color: rgba(255, 204, 0, 0.05);
+  border-left: 3px solid var(--accent-yellow);
+}
+
+/* ÁREA DEL EJERCICIO */
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  position: relative;
+  background-image: radial-gradient(circle at 2px 2px, #111 1px, transparent 0);
+  background-size: 40px 40px;
+  /* FONDO DE PUNTOS */
+}
+
+.exercise-canvas {
+  width: 100%;
+  max-width: 800px;
+  min-height: 500px;
+  background: var(--panel-dark);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 50px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* -------------------------------------------------------------------- */
+/* EJERCICIO 1 */
 .colorFondo {
   display: flex;
   flex-direction: column;
-  height: 400px;
-}
-.colorBotones{
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.colorBotones button{
-  background-color: rgb(53, 53, 53);
-  border: 0;
-  color: white;
-  font-weight: 900;
-  padding: 10px;
-  border-radius: 5px;
-}
-.colorBotones button:hover{
-  background-color: rgb(185, 185, 185);
-  border: 0;
-  color: rgb(32, 32, 32);
-  padding: 10px;
-  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 
-/*EJERCICIO 2 - CONTADOR CLICS*/
-.contador h1{
+.colorFondo h1 {
+  font-size: 1rem;
+  color: var(--text-grey);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
   text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.colorBotonesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 320px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BOTONES */
+.colorBotonesGrid button.color-btn {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  background-color: var(--panel-dark);
+  color: var(--text-white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.colorBotonesGrid button.color-btn:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  background-color: #1a1a1a;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--btn-color);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* BOTÓN ALEATORIO */
+.colorBotonesGrid button.color-btn.action {
+  background-color: var(--panel-dark);
+  color: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+}
+
+.colorBotonesGrid button.color-btn.action span {
+  font-size: 1.5rem;
   font-weight: 900;
 }
-.contador p{
-  text-align: center;
-  font-weight: 900;
+
+.colorBotonesGrid button.color-btn.action:hover {
+  background-color: var(--accent-yellow);
+  color: #000;
 }
+
+/* -------------------------------------------------------------------- */
+/* EJERCICIO 2 */
 .contador {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
   justify-content: center;
-  height: 400px;
-}
-.contadorBotones {
-  display: flex;
-  gap: 5px;
-}
-.contador button{
-  background-color: rgb(53, 53, 53);
-  border: 0;
-  color: white;
-  font-weight: 900;
-  padding: 10px;
-  border-radius: 5px;
-}
-.contador button:hover{
-  background-color: rgb(185, 185, 185);
-  border: 0;
-  color: rgb(32, 32, 32);
-  padding: 10px;
-  border-radius: 5px;
+  gap: 20px;
+  width: 100%;
 }
 
-/*EJERCICIO 3 - LISTA DINAMICA*/
+.contador h1 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--text-white);
+  margin-bottom: 5px;
+}
+
+.contador p {
+  font-size: 1.1rem;
+  color: var(--text-grey);
+  margin-bottom: 20px;
+}
+
+.contadorBotones {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* BOTONES */
+.contador button {
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* BOTÓN SUMAR */
+.btn-primary-lab {
+  background-color: var(--accent-yellow);
+  color: #000;
+}
+
+.btn-primary-lab:hover {
+  background-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* BOTÓN RESTAR*/
+.btn-secondary-lab {
+  background-color: #bfa000;
+  color: #000;
+}
+
+.btn-secondary-lab:hover {
+  background-color: #d4b400;
+  transform: translateY(-2px);
+}
+
+/* BOTÓN RESET */
+.btn-outline-lab {
+  background-color: transparent;
+  border: 2px solid var(--border) !important;
+  color: var(--text-white) !important;
+}
+
+.btn-outline-lab:hover {
+  border-color: var(--accent-yellow) !important;
+  color: var(--accent-yellow) !important;
+}
+
+/* -------------------------------------------------------------------- */
+/* EJERCICIO 3 */
 .listaDinamica {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  justify-content: center;
-  height: 400px;
-}
-.listaDinamica h1{
-  text-align: center;
-  font-weight: 900;
-}
-.listaDinamica button{
-  background-color: rgb(53, 53, 53);
-  border: 0;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-}
-.lista button{
-  background-color: rgb(180, 180, 180);
-  border: 0;
-  padding: 1px;
-  border-radius: 5px;
-}
-.listaDinamica button:hover{
-  background-color: rgb(185, 185, 185);
-  border: 0;
-  color: rgb(32, 32, 32);
-  padding: 10px;
-  border-radius: 5px;
-}
-.lista button:hover{
-  background-color: rgb(248, 184, 184);
-  border: 0;
-  padding: 1px;
-  border-radius: 5px;
+  gap: 20px;
+  width: 100%;
+  max-width: 450px;
 }
 
-/*EJERCICIO 4 - FILTRO BUSQUEDA*/
-.filtroBusqueda{
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  justify-content: center;
-  height: 400px;
-}
-.filtroBusqueda h1{
+/* INPUT */
+.listaDinamica input[type="text"] {
+  width: 100%;
+  background-color: #000;
+  border: 1px solid var(--border);
+  color: var(--text-white);
+  padding: 14px 25px;
+  border-radius: 50px;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.2s;
   text-align: center;
-  font-weight: 900;
-}
-.filtroBusqueda h4{
-  text-align: center;
-  font-weight: 900;
 }
 
-/*EJERCICIO 5 - CALCULADORA*/
-.calculadora h1{
-  text-align: center;
-  font-weight: 900;
-}
-.calculadora {
-  background-color: rgb(185, 185, 185);
-  padding: 15px;
-  justify-content: center;
-  height: 400px;
-}
-.numeros {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
-}
-.operadores {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  padding-top: 10px;
-  gap: 5px;
-}
-.operadores button{
-  background-color: bisque;
-}
-.resultado {
-  background-color: beige;
-  margin-top: 10px;
-  padding: 5px;
-}
-.operacion {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  gap: 15px;
-}
-.operacion button{
-  background-color: beige;
+.listaDinamica input:focus {
+  border-color: var(--accent-yellow);
 }
 
-/*EJERCICIO 6 - TEMPORIZADOR*/
-.temporizador{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 400px;
-}
-.container1 p{
-  font-size: 50px;
-  font-weight: bold;
-}
-.container2 {
-  display: flex;
-  gap: 15px;
-}
-.container2 button {
-  background-color: rgb(53, 53, 53);
-  border: 0;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-}
-.container2 button:hover {
-  background-color: rgb(185, 185, 185);
-  border: 0;
-  color: rgb(32, 32, 32);
-  padding: 10px;
-  border-radius: 5px;
+/* BOTÓN AGREGAR */
+.btn-agregar {
+  background-color: var(--accent-yellow);
+  color: #000;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-/*EJERCICIO 7 - GENERADOR CONTRASEÑA*/
-.contra h1{
-  text-align: center;
-  font-weight: 900;
+.btn-agregar:hover {
+  background-color: #fff;
+  transform: scale(1.05);
 }
-.contra{
+
+/* CONTENEDOR LISTA */
+.lista-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+/* MINI TARJETA COMPONENTES LISTA */
+.lista-item {
+  background-color: #1a1a1a;
+  border: 1px solid var(--border);
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-white);
+  animation: slideIn 0.3s ease-out;
+}
+
+/* BOTON X */
+.btn-delete {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #ff4d4d;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  height: 400px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
 }
-.error{
-  color: red;
-  font-weight: 500;
-  text-align: center;
-  font-size: 25px;
-}
-.contrasena {
-  color: blueviolet;
-  text-align: center;
-  font-size: 25px;
-  font-weight: 700;
-}
-.contra button {
-  background-color: rgb(53, 53, 53);
-  border: 0;
+
+.btn-delete:hover {
+  background-color: #ff4d4d;
   color: white;
-  padding: 10px;
-  border-radius: 5px;
-}
-.contra button:hover {
-  background-color: rgb(185, 185, 185);
-  border: 0;
-  color: rgb(32, 32, 32);
-  padding: 10px;
-  border-radius: 5px;
+  transform: rotate(90deg);
 }
 
-/*EJERCICIO 8 - CONTADOR PALABRAS Y CARACTERES*/
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 
-.contadorPalabrasCaracteres{
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -------------------------------------------------------------------- */
+/* EJERCICIO 4 */
+.filtroBusqueda {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* TEXTAREA */
+.filtroBusqueda textarea {
+  width: 100%;
+  min-height: 120px;
+  background-color: #000;
+  border: 1px solid var(--border);
+  color: var(--text-white);
+  padding: 15px;
+  border-radius: 15px;
+  outline: none;
+  font-size: 0.95rem;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+/* INPUT BÚSQUEDA */
+.filtroBusqueda input[type="text"] {
+  width: 100%;
+  background-color: #1a1a1a;
+  border: 1px solid var(--border);
+  color: var(--accent-yellow);
+  padding: 12px 25px;
+  border-radius: 50px;
+  outline: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.filtroBusqueda input:focus,
+.filtroBusqueda textarea:focus {
+  border-color: var(--accent-yellow);
+}
+
+/* RESULTADOS */
+.resultados-container {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid var(--border);
+}
+
+.resultados-container h4 {
+  color: var(--text-grey);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* TAGS COINCIDENCIAS */
+.tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.tag-coincidencia {
+  background-color: var(--accent-yellow);
+  color: #000;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  animation: popIn 0.2s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* -------------------------------------------------------------------- */
+/* EJERCICIO 5*/
+.calculadora {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.calculadora h1 {
+  font-size: 1.2rem;
+  color: var(--text-grey);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+/* PANTALLA RESULTADO */
+
+.calculadora .resultado {
+  background-color: #000;
+  border: 1px solid var(--border);
+  color: var(--accent-yellow);
+  padding: 20px;
+  font-size: 2rem;
+  text-align: right;
+  min-height: 70px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-family: 'monospace';
+  overflow: hidden;
+}
+
+/* RTEJILLA DE NÚMEROS */
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* REJILLA DE OPERADORES */
+.operadores {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* BOTONES "=" y "C" */
+.operacion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* BOTONES DENTRO DE LA CALCULADORA */
+.calculadora button {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  background-color: var(--panel-dark);
+  color: var(--text-white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calculadora button:hover {
+  border-color: var(--accent-yellow);
+  color: var(--accent-yellow);
+  background-color: #1a1a1a;
+}
+
+/* BOTÓN "=" RESALTADO */
+.operacion button:first-child {
+  background-color: var(--accent-yellow);
+  color: #000;
+  font-weight: 900;
+}
+
+.operacion button:first-child:hover {
+  background-color: #fff;
+}
+
+/* HUECOS VACIOS */
+.vacio {
+  height: 60px;
+}
+
+/*----------------------------------------------------------------*/
+
+/* EJERCICIO 6 */
+.temporizador {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 400px;
-}
-.contadorPalabrasCaracteres h1{
-  text-align: center;
-  font-weight: 900;
-}
-.contadorPalabrasCaracteres textarea{
-  width: 300px;
-  height: 150px;
-}
-.contadorPalabrasCaracteres button{
-  background-color: rgb(53, 53, 53);
-  border: 0;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-}
-.contadorPalabrasCaracteres button:hover {
-  background-color: rgb(185, 185, 185);
-  border: 0;
-  color: rgb(32, 32, 32);
-  padding: 10px;
-  border-radius: 5px;
-}
-.contadorPalabrasCaracteres p{
-  text-align: center;
-  font-weight: 700;
-  font-size: 25px;
+  gap: 30px;
+  width: 100%;
 }
 
-/*EJERCICIO 9 - LISTA DE TAREAS*/
+/* TIEMPO */
+.temporizador .display-tiempo {
+  background-color: #000;
+  padding: 30px 50px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.temporizador .display-tiempo p {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--accent-yellow);
+  margin: 0;
+  letter-spacing: 4px;
+  text-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+}
+
+/* BOTONES */
+.temporizador .controles {
+  display: flex;
+  gap: 15px;
+}
+
+/* CONTADOR */
+.temporizador button {
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-start {
+  background-color: var(--accent-yellow);
+  color: #000;
+}
+
+.btn-stop {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-reset-lab {
+  background-color: transparent;
+  border: 2px solid var(--border) !important;
+  color: var(--text-white) !important;
+}
+
+.temporizador button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-reset-lab:hover {
+  border-color: #ff4d4d !important;
+  color: #ff4d4d !important;
+}
+
+/*----------------------------------------------------------------*/
+
+/* EJERCICIO 7 */
+.contra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* INPUT Y BOTÓN */
+.input-group-lab {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.contra input[type="number"] {
+  flex: 1;
+  background-color: #000;
+  border: 1px solid var(--border);
+  color: var(--text-white);
+  padding: 12px 20px;
+  border-radius: 50px;
+  outline: none;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.contra input:focus {
+  border-color: var(--accent-yellow);
+}
+
+.btn-generar {
+  background-color: var(--accent-yellow);
+  color: #000;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-generar:hover {
+  background-color: #fff;
+  transform: scale(1.05);
+}
+
+/* PANEL CONTRASEÑA */
+.cuadroContra {
+  width: 100%;
+  min-height: 100px;
+  background-color: #111;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contrasena {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.4rem;
+  color: var(--accent-yellow);
+  word-break: break-all;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* DECORACIÓN */
+.cuadroContra::before {
+  content: "ENCRYPTED OUTPUT";
+  position: absolute;
+  top: 8px;
+  left: 15px;
+  font-size: 0.6rem;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+/*----------------------------------------------------------------*/
+
+/* EJERCICIO 8 */
+.contadorPalabrasCaracteres {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 550px;
+}
+
+.contadorPalabrasCaracteres textarea {
+  width: 100%;
+  min-height: 180px;
+  background-color: #000;
+  border: 1px solid var(--border);
+  color: var(--text-white);
+  padding: 20px;
+  border-radius: 15px;
+  outline: none;
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.contadorPalabrasCaracteres textarea:focus {
+  border-color: var(--accent-yellow);
+}
+
+/* ESTADÍSTICAS */
+.stats-container {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: center;
+}
+
+.stat-pill {
+  background-color: #1a1a1a;
+  border: 1px solid var(--border);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: var(--text-grey);
+}
+
+.stat-pill span {
+  color: var(--accent-yellow);
+  font-weight: 800;
+  margin-left: 5px;
+}
+
+/* BOTÓN LIMPIAR */
+.btn-limpiar-lab {
+  background-color: transparent;
+  border: 2px solid #ff4d4d !important;
+  color: #ff4d4d !important;
+  padding: 10px 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-limpiar-lab:hover {
+  background-color: #ff4d4d;
+  color: white !important;
+  transform: scale(1.05);
+}
+
+/*----------------------------------------------------------------*/
+
+/* EJERCICIO 9 */
 .listaTareasLocal {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* ENTRADA */
+.input-group-tareas {
+  display: flex;
+  gap: 10px;
+}
+
+.listaTareasLocal input[type="text"] {
+  flex: 1;
+  background-color: #000;
+  border: 1px solid var(--border);
+  color: var(--text-white);
+  padding: 12px 20px;
+  border-radius: 50px;
+  outline: none;
+}
+
+/* BOTÓN AMARILLO */
+.btn-agregar-tarea {
+  background-color: var(--accent-yellow);
+  color: #000;
+  border: none;
+  padding: 0 25px;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* LISTA DE TAREAS */
+.tareas-ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tarea-item {
+  background-color: #111;
+  border: 1px solid var(--border);
+  padding: 15px 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.tarea-item.completada {
+  border-color: var(--accent-yellow);
+  opacity: 0.7;
+  background-color: rgba(255, 204, 0, 0.05);
+}
+
+.tarea-texto {
+  color: var(--text-white);
+  font-weight: 500;
+}
+
+.tarea-item.completada .tarea-texto {
+  text-decoration: line-through;
+  color: var(--text-grey);
+}
+
+/* CHECKBOX */
+.custom-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--accent-yellow);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  height: 400px;
+  transition: all 0.2s;
 }
-.listaTareasLocal h1{
-  text-align: center;
+
+.custom-checkbox.active {
+  background-color: var(--accent-yellow);
+}
+
+.custom-checkbox::after {
+  content: "✓";
+  color: #000;
   font-weight: 900;
+  display: none;
 }
-.listaTareasLocal p{
-  font-size: 19px;
-  font-weight: 900;
+
+.custom-checkbox.active::after {
+  display: block;
 }
-.listaTareasLocal button{
-  background-color: rgb(53, 53, 53);
-  border: 0;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-}
-.listaTareasLocal button:hover {
-  background-color: rgb(185, 185, 185);
-  border: 0;
-  color: rgb(32, 32, 32);
-  padding: 10px;
-  border-radius: 5px;
+
+/* -------------------------------------------------------------------- */
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+  body,
+  html,
+  #root {
+    height: auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* BARRA MENÚ SUPERIOR */
+  .sidebar {
+    width: 100%;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .sidebar-header {
+    display: none;
+  }
+
+  /* OCULTAR LOGO */
+
+  .exercise-list {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 10px;
+    gap: 5px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .exercise-item {
+    padding: 10px 15px;
+    white-space: nowrap;
+    border-left: none !important;
+    border-radius: 8px;
+    background: #1a1a1a;
+  }
+
+  .exercise-item.active {
+    background: var(--accent-yellow);
+    color: #000;
+  }
+
+  /* CONTENEDOR EJERCICIO */
+  .main-content {
+    padding: 15px;
+    display: block;
+    width: 100%;
+  }
+
+  .exercise-canvas {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto;
+    padding: 20px 10px !important;
+    margin: 0;
+    border-radius: 12px;
+  }
+
+  .colorBotonesGrid,
+  .calculadora,
+  .listaDinamica,
+  .contra,
+  .listaTareasLocal {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .colorBotonesGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* REDUCIR TEXTOS */
+  .display-tiempo p {
+    font-size: 2rem !important;
+  }
+
+  h1 {
+    font-size: 1.2rem !important;
+  }
 }
